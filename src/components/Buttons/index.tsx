@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Flex, Button, Text, Avatar } from "@chakra-ui/react";
 import { useApp } from "../../contexts/contextApi";
 import { Card } from "../Card";
+import { useToast } from "@chakra-ui/react";
 
 export const Buttons = ({ ...props }) => {
+  const toast = useToast();
   const {
     username,
     setDataUser,
@@ -33,6 +35,24 @@ export const Buttons = ({ ...props }) => {
             .catch((err) => {
               console.log(err);
             });
+          if (username === "") {
+            toast({
+              title: "Usuário não encontrado",
+              description: "Insira um usuário válido",
+              status: "error",
+              duration: 2000,
+              isClosable: true,
+            });
+          } else {
+            toast({
+              title: "Usuário encontrado com sucesso",
+              description: "Usuário encontrado",
+              status: "success",
+              duration: 2000,
+              isClosable: true,
+            });
+          }
+
           setModalOpen(!modalOpen);
           setButtonAppears(false);
         }}
