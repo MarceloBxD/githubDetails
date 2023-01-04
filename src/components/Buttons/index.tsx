@@ -5,13 +5,20 @@ import { Card } from "../Card";
 
 export const Buttons = ({ ...props }) => {
   const {
-    user,
-    setUser,
+    username,
+    setDataUser,
     modalOpen,
     setModalOpen,
     buttonAppears,
     setButtonAppears,
   }: any = useApp();
+
+  const githubApi = async (username: string) => {
+    const req = await fetch(`https://api.github.com/users/${username}`);
+    const json = await req.json();
+    console.log(json);
+    setDataUser(json);
+  };
 
   // se nao tiver o usuário mostrar um toast falando para inserir algum usuário
 
@@ -19,17 +26,23 @@ export const Buttons = ({ ...props }) => {
     <Flex flexDir="column">
       <Button
         onClick={() => {
+          githubApi(username)
+            .then(() => {
+              console.log("Usuário encontrado com sucesso!");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
           setModalOpen(!modalOpen);
           setButtonAppears(false);
         }}
-        p="5px"
         display={buttonAppears ? "block" : "none"}
         variant="ghost"
         bgColor="#fff"
         color="#000"
         {...props}
       >
-        Search
+        <Text align="center">Search</Text>
       </Button>
       {modalOpen && <Card />}
     </Flex>
