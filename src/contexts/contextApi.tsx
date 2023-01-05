@@ -15,6 +15,7 @@ export function AppProvider({ children }: any) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [buttonAppears, setButtonAppears] = useState<boolean>(true);
   const [username, setUsername] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const githubApi = async (username: string) => {
     const req = await fetch(`https://api.github.com/users/${username}`);
@@ -34,6 +35,8 @@ export function AppProvider({ children }: any) {
     username,
     setUsername,
     githubApi,
+    openModal,
+    setOpenModal,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
