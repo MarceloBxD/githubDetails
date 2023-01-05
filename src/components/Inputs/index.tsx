@@ -16,12 +16,14 @@ export const Inputs = () => {
 
   return (
     <Input
+      autoFocus
       color="#fff"
       p="20px"
       onChange={(e) => setUsername(e.target.value)}
       value={username}
       placeholder="Usuário"
       onKeyDown={(e) => {
+        // remover o foco do input ao clicar em enter
         if (e.key === "Enter") {
           githubApi(username)
             .then(() => {
