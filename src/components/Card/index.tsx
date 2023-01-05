@@ -39,6 +39,7 @@ export const Card = () => {
         <Avatar size="md" src={dataUser.avatar_url} />
         <Text fontWeight="400">{username}</Text>
         <Flex
+          gap="20px"
           flexDir="column"
           flexWrap="wrap"
           w="100%"
@@ -62,7 +63,9 @@ export const Card = () => {
             >
               Company: {dataUser.company}
             </Text>
-            <Text align="center">{dataUser.location}</Text>
+            <Text align="center" mb="10px">
+              {dataUser.location}
+            </Text>
             <Text textAlign="center" letterSpacing="3px">
               {dataUser.bio}
             </Text>
