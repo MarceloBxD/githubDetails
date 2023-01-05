@@ -13,6 +13,7 @@ export const Buttons = ({ ...props }) => {
     setModalOpen,
     buttonAppears,
     setButtonAppears,
+    setUsername,
   }: any = useApp();
 
   const githubApi = async (username: string) => {
@@ -55,6 +56,7 @@ export const Buttons = ({ ...props }) => {
 
           setModalOpen(!modalOpen);
           setButtonAppears(false);
+          setUsername("");
         }}
         display={buttonAppears ? "block" : "none"}
         variant="ghost"
