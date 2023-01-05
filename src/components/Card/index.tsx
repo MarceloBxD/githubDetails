@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Text, Avatar, Button } from "@chakra-ui/react";
 import { useApp } from "../../contexts/contextApi";
 import backgroundCard from "../../assets/images/backgroundCard.jpg";
+import { motion } from "framer-motion";
 
 export const Card = () => {
   const { username, dataUser, setModalOpen, setButtonAppears }: any = useApp();
@@ -51,10 +52,15 @@ export const Card = () => {
             align="center"
             fontWeight="bold"
             w="100%"
+            gap="20px"
             justify="space-between"
           >
-            <Text>Following: {dataUser.following}</Text>
-            <Text>Followers: {dataUser.followers}</Text>
+            <motion.p whileHover={{ scale: 1.2 }}>
+              Following: {dataUser.following}
+            </motion.p>
+            <motion.p whileHover={{ scale: 1.2 }}>
+              Followers: {dataUser.followers}
+            </motion.p>
           </Flex>
           <Flex flexDir="column">
             <Text

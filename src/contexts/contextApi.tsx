@@ -16,6 +16,12 @@ export function AppProvider({ children }: any) {
   const [buttonAppears, setButtonAppears] = useState<boolean>(true);
   const [username, setUsername] = useState<string>("");
 
+  const githubApi = async (username: string) => {
+    const req = await fetch(`https://api.github.com/users/${username}`);
+    const json = await req.json();
+    setDataUser(json);
+  };
+
   const value = {
     user,
     setUser,
@@ -27,6 +33,7 @@ export function AppProvider({ children }: any) {
     setButtonAppears,
     username,
     setUsername,
+    githubApi,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

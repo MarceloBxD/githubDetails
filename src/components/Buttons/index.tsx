@@ -3,27 +3,26 @@ import { Flex, Button, Text, Avatar } from "@chakra-ui/react";
 import { useApp } from "../../contexts/contextApi";
 import { Card } from "../Card";
 import { useToast } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 export const Buttons = ({ ...props }) => {
   const toast = useToast();
   const {
     username,
-    setDataUser,
     modalOpen,
     setModalOpen,
     buttonAppears,
     setButtonAppears,
     setUsername,
+    githubApi,
   }: any = useApp();
 
-  const githubApi = async (username: string) => {
-    const req = await fetch(`https://api.github.com/users/${username}`);
-    const json = await req.json();
-    console.log(json);
-    setDataUser(json);
-  };
-
-  // se nao tiver o usuário mostrar um toast falando para inserir algum usuário
+  // const githubApi = async (username: string) => {
+  //   const req = await fetch(`https://api.github.com/users/${username}`);
+  //   const json = await req.json();
+  //   console.log(json);
+  //   setDataUser(json);
+  // };
 
   return (
     <Flex flexDir="column">
@@ -33,7 +32,7 @@ export const Buttons = ({ ...props }) => {
             .then(() => {
               console.log("Usuário encontrado com sucesso!");
             })
-            .catch((err) => {
+            .catch((err: any) => {
               console.log(err);
             });
           if (username === "") {
