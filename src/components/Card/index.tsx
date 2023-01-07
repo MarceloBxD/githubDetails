@@ -3,7 +3,6 @@ import { Flex, Text, Avatar, Button } from "@chakra-ui/react";
 import { useApp } from "../../contexts/contextApi";
 import backgroundCard from "../../assets/images/backgroundCard.jpg";
 import { motion } from "framer-motion";
-import { Rating } from "../Rating";
 
 export const Card = () => {
   const { username, dataUser, setModalOpen, setButtonAppears }: any = useApp();
@@ -77,9 +76,6 @@ export const Card = () => {
               {dataUser.bio}
             </Text>
           </Flex>
-        </Flex>
-        <Flex mt="-15px" justify="center" color="#fff">
-          <Rating />
         </Flex>
       </Flex>
     </Flex>
