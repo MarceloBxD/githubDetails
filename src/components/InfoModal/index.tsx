@@ -31,14 +31,10 @@ export const InfoModal = () => {
         </Button>
       </Flex>
       <Text p="20px" fontSize="16px">
-        Aplicativo criado para consultar algumas informações do perfil de
-        qualquer usuário que tenha uma conta criada no Github! Haverá formas de
-        melhorar o aplicativo, como por exemplo, adicionar mais informações,
-        como por exemplo, as informações de repositórios do usuário, e também,
-        adicionar uma página de detalhes do usuário, ou até mesmo, uma página de
-        detalhes do repositório. Poderá ser feito também um rating do usuário,
-        com algumas observações dadas por quem está a visitar o perfil do
-        usuário.
+        Application created to query some profile information of any user who
+        has an account created on Github! Changes may be made, such as inserting
+        some observation about the profile and storing it in a database, or also
+        making a rating
       </Text>
     </Flex>
   );
